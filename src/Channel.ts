@@ -10,12 +10,12 @@
 /**
  * Shape of functions, that handles events.
  */
-type IEventHandler = <P>(payload?: P) => void;
+type IEventHandler = <P>(payload?: P) => any;
 
 /**
  * Shape of functions, that handles request.
  */
-type IRequestHandler = (payload: object) => void;
+type IRequestHandler = <P>(payload?: P) => any;
 
 /**
  * Shape of a list of registered event handlers.
@@ -87,7 +87,7 @@ class Channel {
    * handling
    * @returns Arbitrary value provided by request handler
    */
-  public request(requestName: string, payload: object): any {
+  public request<P>(requestName: string, payload?: P): any {
     const requestHandler = this.requests[requestName];
     if (requestHandler) {
       return requestHandler(payload);
@@ -101,7 +101,7 @@ class Channel {
    * returns some data back to the requester.
    * @returns Current channel that you can use for method chaining
    */
-  public reply(requestName: string, requestHandler: any): Channel {
+  public reply(requestName: string, requestHandler: IRequestHandler): Channel {
     this.requests[requestName] = requestHandler;
     return this;
   }
