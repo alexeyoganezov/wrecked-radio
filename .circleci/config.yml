@@ -21,4 +21,4 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn lint
-      - run: yarn test --coverageReporters=text-lcov | coveralls
+      - run: yarn test --coverageReporters=text-lcov | node_modules/.bin/coveralls
