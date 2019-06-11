@@ -5,7 +5,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*',
   ],
-  coverageReporters: ['text-lcov', 'coveralls'],
+  coverageReporters: process.env.COVERALLS_REPO_TOKEN ? ['text-lcov', 'coveralls'] : ['text'],
   coverageThreshold: {
     global: {
       branches: 100,
