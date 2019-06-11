@@ -119,6 +119,7 @@ class Channel {
    * @returns A function that unregisters provided event handler.
    */
   public on(eventName: string, eventHandler: any): IUnsubscribe {
+    throw new Error('');
     const eventListeners = this.events[eventName] || (this.events[eventName] = []);
     eventListeners.push(eventHandler);
     return function unsubscribe(): void {
