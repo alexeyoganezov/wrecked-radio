@@ -1,7 +1,7 @@
 # WreckedRadio
 
-[![CircleCI](https://circleci.com/gh/frankendux/wrecked-radio.svg?style=shield)](https://circleci.com/gh/frankendux/wrecked-radio)
-[![Coverage Status](https://coveralls.io/repos/github/frankendux/wrecked-radio/badge.svg)](https://coveralls.io/github/frankendux/wrecked-radio)
+[![CircleCI](https://img.shields.io/circleci/build/github/frankendux/wrecked-radio.svg)](https://circleci.com/gh/frankendux/wrecked-radio)
+[![Coverage Status](https://img.shields.io/coveralls/github/frankendux/wrecked-radio.svg)](https://coveralls.io/github/frankendux/wrecked-radio)
 
 WreckedRadio is a message bus that implements both [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [request-reply](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) patterns:
 
