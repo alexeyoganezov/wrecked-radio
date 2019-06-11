@@ -10,7 +10,7 @@
 /**
  * Shape of functions, that handles events.
  */
-type IEventHandler = (payload: object) => void;
+type IEventHandler = <P>(payload?: P) => void;
 
 /**
  * Shape of functions, that handles request.
@@ -118,7 +118,7 @@ class Channel {
    * @param eventHandler A function that handles events with specified name.
    * @returns A function that unregisters provided event handler.
    */
-  public on(eventName: string, eventHandler: any): IUnsubscribe {
+  public on(eventName: string, eventHandler: IEventHandler): IUnsubscribe {
     const eventListeners = this.events[eventName] || (this.events[eventName] = []);
     eventListeners.push(eventHandler);
     return function unsubscribe(): void {
@@ -132,10 +132,10 @@ class Channel {
    * @param payload Additional data that describes an event and is necessary for proper event
    * handling.
    */
-  public trigger(eventName: string, payload?: any): void {
+  public trigger<P>(eventName: string, payload?: P): void {
     const eventListeners = this.events[eventName];
     if (eventListeners) {
-      eventListeners.forEach((handler: any) => handler(payload));
+      eventListeners.forEach((handler: IEventHandler) => handler(payload));
     }
   }
 }
