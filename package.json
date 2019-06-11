@@ -28,6 +28,6 @@
     "build": "rollup -c",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "docs": "typedoc --out ./docs ./src",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest"
   }
 }
