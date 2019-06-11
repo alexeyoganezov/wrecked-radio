@@ -10,12 +10,12 @@
 /**
  * Shape of functions, that handles events.
  */
-type IEventHandler = <P>(payload?: P) => any;
+type IEventHandler = <P, R>(payload: P) => R;
 
 /**
  * Shape of functions, that handles request.
  */
-type IRequestHandler = <P>(payload?: P) => any;
+type IRequestHandler = <P, R>(payload: P) => R;
 
 /**
  * Shape of a list of registered event handlers.
@@ -108,9 +108,11 @@ class Channel {
   /**
    * Remove request handler from the channel.
    * @param requestName A request name that shouldn't be handled anymore.
+   * @returns Current channel that you can use for method chaining
    */
-  public stopReplying(requestName: string): void {
+  public stopReplying(requestName: string): Channel {
     delete this.requests[requestName];
+    return this;
   }
   /**
    * Add an event handler (subscriber) to the channel.
