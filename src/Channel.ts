@@ -10,12 +10,12 @@
 /**
  * Shape of functions, that handles events.
  */
-type IEventHandler = <P, R>(payload: P) => R;
+type IEventHandler = <P, R>(payload?: P) => R;
 
 /**
  * Shape of functions, that handles request.
  */
-type IRequestHandler = <P, R>(payload: P) => R;
+type IRequestHandler = <P, R>(payload?: P) => R;
 
 /**
  * Shape of a list of registered event handlers.
