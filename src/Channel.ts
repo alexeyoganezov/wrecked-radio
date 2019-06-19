@@ -9,16 +9,22 @@
 
 /**
  * Shape of functions that handle events.
- * @param payload - Optional data passed with the event.
+ * @param payload - Arbitrary data passed with the event.
  * @returns Returned value is completely ignored by the library and can be used only for testing
  * purposes.
  */
-type IEventHandler = (payload?: any) => any;
+interface IEventHandler {
+  (payload?: any): any;
+}
 
 /**
  * Shape of functions, that handles request.
+ * @param payload - Arbitrary data passed with the request.
+ * @returns Response data that will be passed back to the requester.
  */
-type IRequestHandler = (payload?: any) => any;
+interface IRequestHandler {
+  (payload?: any): any;
+}
 
 /**
  * Shape of a list of registered event handlers.
