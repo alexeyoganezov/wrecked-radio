@@ -27,23 +27,32 @@ interface IRequestHandler {
 }
 
 /**
- * Shape of a list of registered event handlers.
+ * Shape of the list of registered event handlers. Keys are event names and values are arrays of event
+ * handlers.
+ *
+ * Used by [[Channel.events]].
  */
 interface IEventHandlerContainer {
   [key: string]: IEventHandler[];
 }
 
 /**
- * Shape of a list of registered request handlers.
+ * Shape of the list of registered request handlers. Keys are request names and values are request
+ * handlers.
+ *
+ * Used by [[Channel.requests]].
  */
 interface IRequestHandlerContainer {
   [key: string]: IRequestHandler;
 }
 
 /**
- * Shape of functions, that unregister event handler.
+ * Shape of functions that unregister event handler.
+ * Implemented in [[Channel.on]].
  */
-type IUnsubscribe = () => void;
+interface IUnsubscribe {
+  (): void;
+}
 
 /**
  * Implements a communication channel that can be used for message passing (both events and
