@@ -27,8 +27,8 @@ interface IRequestHandler {
 }
 
 /**
- * Shape of the list of registered event handlers. Keys are event names and values are arrays of event
- * handlers.
+ * Shape of the list of registered event handlers. Keys are event names and values are arrays of
+ * event handlers.
  *
  * Used by [[Channel.events]].
  */
@@ -55,8 +55,8 @@ interface IUnsubscribe {
 }
 
 /**
- * Implements a communication channel that can be used for message passing (both events and
- * requests).
+ * This class implements a communication channel that can be used for message passing (both events
+ * and requests).
  *
  * For channel instantiation you should use WreckedRadio class since it allows you to manage them
  * more easily:
@@ -66,8 +66,8 @@ interface IUnsubscribe {
  * const myChannel = WreckedRadio.channel('my-channel-name');
  * ```
  *
- * When you just want to notify external systems about some happened event you should use on/trigger
- * methods, for example:
+ * When you just want to notify external systems about an event you should use on/trigger
+ * methods:
  *
  * ```
  * // Somewhere in event subscriber:
@@ -77,8 +77,8 @@ interface IUnsubscribe {
  * channel.trigger('user-login-success', { name: 'Mark' });
  * ```
  *
- * In case you want to give a command to some external system and get some data back you should use
- * request/reply methods, for example:
+ * In case you want to send a command to some external system and get some data back you should use
+ * request/reply methods:
  *
  * ```
  * // Somewhere in command processor:
@@ -90,20 +90,20 @@ interface IUnsubscribe {
  */
 class Channel {
   /**
-   * A list of registered event handlers (event subscribers)
+   * The list of registered event handlers.
    */
   private readonly events: IEventHandlerContainer = {};
   /**
-   * A list of registered request handlers (request/command subscribers)
+   * The list of registered request handlers.
    */
   private readonly requests: IRequestHandlerContainer = {};
   /**
    * Send a request to the channel.
-   * @param requestName Name of a request you want to make. Request handler with the same name
+   * @param requestName - Name of a request you want to make. Request handler with the same name
    * should be registered before making a request.
-   * @param payload Additional data that describes a request and is necessary for proper request
-   * handling
-   * @returns Arbitrary value provided by request handler
+   * @param payload - Additional data that describes a request and is necessary for proper request
+   * handling.
+   * @returns Arbitrary data provided by request handler.
    */
   public request<P>(requestName: string, payload?: P): any {
     const requestHandler = this.requests[requestName];
@@ -113,11 +113,11 @@ class Channel {
     throw new Error(`WreckedRadio: the request "${requestName}" has no registered handler`);
   }
   /**
-   * Add request handler to the channel.
-   * @param requestName Name of a request that you're going to handle.
-   * @param requestHandler A function that accepts a request (its name and payload), process it and
-   * returns some data back to the requester.
-   * @returns Current channel that you can use for method chaining
+   * Add a request handler to the channel.
+   * @param requestName - Name of a request that you're going to handle.
+   * @param requestHandler - A function that accepts a request (its name and payload), process it
+   * and returns some data back to the requester.
+   * @returns Current channel that you can use for method chaining.
    */
   public reply(requestName: string, requestHandler: IRequestHandler): Channel {
     this.requests[requestName] = requestHandler;
@@ -125,8 +125,8 @@ class Channel {
   }
   /**
    * Remove request handler from the channel.
-   * @param requestName A request name that shouldn't be handled anymore.
-   * @returns Current channel that you can use for method chaining
+   * @param requestName - A request name that shouldn't be handled anymore.
+   * @returns Current channel that you can use for method chaining.
    */
   public stopReplying(requestName: string): Channel {
     delete this.requests[requestName];
@@ -134,8 +134,8 @@ class Channel {
   }
   /**
    * Add an event handler (subscriber) to the channel.
-   * @param eventName Event name you're going to listen.
-   * @param eventHandler A function that handles events with specified name.
+   * @param eventName - Event name you're going to listen.
+   * @param eventHandler - A function that handles events with specified name.
    * @returns A function that unregisters provided event handler.
    */
   public on(eventName: string, eventHandler: IEventHandler): IUnsubscribe {
@@ -148,8 +148,8 @@ class Channel {
   }
   /**
    * Trigger an event on the channel.
-   * @param eventName Event name you're going to send.
-   * @param payload Additional data that describes an event and is necessary for proper event
+   * @param eventName - Event name you're going to send.
+   * @param payload - Additional data that describes an event and is necessary for proper event
    * handling.
    */
   public trigger<P>(eventName: string, payload?: P): void {
