@@ -1,14 +1,17 @@
 /**
- * This module contains everything that's necessary for Channel implementation.
+ * Implements communication channel used by [[WreckedRadio]].
  *
- * Under usual circumstances this module **shouldn't be used directly**, so please consider using
- * [[WreckedRadio]] class/module instead.
+ * Under usual circumstances this module's content **shouldn't be used directly**. Consider using
+ * [[WreckedRadio]] class instead.
  *
- * For more information check out "Channel" class documentation.
+ * For more information check out [[Channel]] class documentation.
  */
 
 /**
- * Shape of functions, that handles events.
+ * Shape of functions that handle events.
+ * @param payload - Optional data passed with the event.
+ * @returns Returned value is completely ignored by the library and can be used only for testing
+ * purposes.
  */
 type IEventHandler = (payload?: any) => any;
 
