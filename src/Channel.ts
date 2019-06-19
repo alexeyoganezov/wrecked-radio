@@ -2,7 +2,7 @@
  * This module contains everything that's necessary for Channel implementation.
  *
  * Under usual circumstances this module **shouldn't be used directly**, so please consider using
- * WreckedRadio class/module instead.
+ * [[WreckedRadio]] class/module instead.
  *
  * For more information check out "Channel" class documentation.
  */
