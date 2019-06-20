@@ -51,3 +51,9 @@ channel.reply('get-greeting', user => `Oh, hi ${user.name}`);
 // Somewhere else:
 const greeting = channel.request('get-greeting', { name: 'Mark' });
 ```
+
+## API Reference
+
+## Licensing
+
+[MIT License](https://github.com/frankendux/wrecked-radio/blob/master/LICENSE)
