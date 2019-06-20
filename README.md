@@ -22,7 +22,7 @@ or
 
 `npm install --save wrecked-radio`
 
-### Instantiating message bus and channels
+### Import and instantiation
 
 ```javascript
 import WreckedRadio from 'wrecked-radio';
