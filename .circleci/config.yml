@@ -25,6 +25,6 @@ jobs:
       - run: yarn test --coverageReporters=text-lcov | node_modules/.bin/coveralls
       - run: yarn docs
       - store_artifacts:
-          path: /dist
+          path: ./dist
       - store_artifacts:
-          path: /docs
+          path: ./docs
