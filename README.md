@@ -25,6 +25,8 @@ or
 ### Instantiating message bus and channels
 
 ```javascript
+import WreckedRadio from 'wrecked-radio';
+
 const radio = new WreckedRadio();
 const firstChannel = radio.channel('first-channel');
 const secondChannel = radio.channel('second-channel');
