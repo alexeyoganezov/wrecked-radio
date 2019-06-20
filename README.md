@@ -52,7 +52,9 @@ channel.reply('get-greeting', user => `Oh, hi ${user.name}`);
 const greeting = channel.request('get-greeting', { name: 'Mark' });
 ```
 
-## API Reference
+## Links
+
+[Detailed API Reference](https://18-160222506-gh.circle-artifacts.com/0/home/circleci/repo/docs/index.html)
 
 ## Licensing
 
