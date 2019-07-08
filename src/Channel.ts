@@ -18,7 +18,7 @@ interface IEventHandler {
 }
 
 /**
- * Shape of functions, that handle requests.
+ * Shape of functions that handle requests.
  * @param payload - Arbitrary data passed with the request.
  * @returns Response data that will be passed back to the requester.
  */
@@ -152,7 +152,7 @@ class Channel {
    * @param payload - Additional data that describes the event and is necessary for proper event
    * handling.
    */
-  public trigger<P>(eventName: string, payload?: P): void {
+  public trigger(eventName: string, payload?: any): void {
     const eventListeners = this.events[eventName];
     if (eventListeners) {
       eventListeners.forEach((handler: IEventHandler) => handler(payload));

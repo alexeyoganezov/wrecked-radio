@@ -1,8 +1,5 @@
 import Channel from './Channel';
 
-/**
- * Implemented in [[WreckedRadio]] class.
- */
 export interface IWreckedRadio {
   channel(channelName: string): Channel;
 }

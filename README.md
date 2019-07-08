@@ -5,7 +5,7 @@
 
 WreckedRadio is a message bus implementation that supports both [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [request-reply](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) patterns. It's:
 
-- Written in TypeScript
+- Written in modern TypeScript
 - Fully covered with tests
 - As tiny as possible
 - Dependency free
