@@ -3,7 +3,7 @@
 [![CircleCI](https://img.shields.io/circleci/build/github/alexeyoganezov/wrecked-radio.svg)](https://circleci.com/gh/frankendux/wrecked-radio)
 [![Coverage Status](https://img.shields.io/coveralls/github/alexeyoganezov/wrecked-radio.svg)](https://coveralls.io/github/frankendux/wrecked-radio)
 
-WreckedRadio is a message bus implementation that supports both [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [request-reply](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) patterns. It's:
+WreckedRadio is a message bus implementation that supports both [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [request-reply](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) patterns.
 
 - Written in modern TypeScript
 - Fully covered with tests
@@ -35,21 +35,28 @@ const secondChannel = radio.channel('second-channel');
 ### Event passing
 
 ```javascript
-// Somewhere in event subscriber:
-channel.on('user-login-success', user => console.log(`Oh, hi ${user.name}`);
+// Add event handler
+channel.on('user-login-success', user => console.log(`Oh, hi ${user.name}`));
 
-// Somewhere in event publisher:
+// Trigger an event
 channel.trigger('user-login-success', { name: 'Mark' });
+
+// Add and remove event handler
+const unsubscribe = channel.on('user-login-success', () => null);
+unsubscribe();
 ```
 
 ### Request passing
 
 ```javascript
-// Somewhere in command processor:
+// Add request handler
 channel.reply('get-greeting', user => `Oh, hi ${user.name}`);
 
-// Somewhere else:
+// Make a request
 const greeting = channel.request('get-greeting', { name: 'Mark' });
+
+// Remove request handler
+channel.stopReplying('get-greeting');
 ```
 
 ## Links
