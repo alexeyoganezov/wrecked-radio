@@ -1,13 +1,13 @@
 {
   "name": "wrecked-radio",
-  "version": "0.0.2",
-  "description": "Message bus implementation heavily inspired by Backbone.Radio",
+  "version": "1.0.0",
+  "description": "Message bus implementation that supports both publish-subscribe and request-reply patterns",
   "main": "dist/WreckedRadio.js",
   "files": [
     "dist/"
   ],
   "types": "dist/WreckedRadio.d.ts",
-  "repository": "git@github.com:frankendux/wrecked-radio.git",
+  "repository": "git@github.com:alexeyoganezov/wrecked-radio.git",
   "author": "Alexey Oganezov <alexey@oganezov.work>",
   "license": "MIT",
   "devDependencies": {
