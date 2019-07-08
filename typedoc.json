@@ -1,0 +1,6 @@
+{
+  "name": "Wrecked Radio",
+  "readme": "./README.md",
+  "out": "./docs",
+  "exclude": "**/**.test.ts"
+}
