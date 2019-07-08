@@ -3,9 +3,9 @@
 [![CircleCI](https://img.shields.io/circleci/build/github/frankendux/wrecked-radio.svg)](https://circleci.com/gh/frankendux/wrecked-radio)
 [![Coverage Status](https://img.shields.io/coveralls/github/frankendux/wrecked-radio.svg)](https://coveralls.io/github/frankendux/wrecked-radio)
 
-WreckedRadio is a message bus that implements both [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [request-reply](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) patterns:
+WreckedRadio is a message bus implementation that supports both [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) and [request-reply](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) patterns. It's:
 
-- It's written with modern TypeScript
+- Written in TypeScript
 - Fully covered with tests
 - As tiny as possible
 - Dependency free
